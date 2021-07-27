@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="planning_slot_view_form_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.form.inherit</field>
+        <field name="inherit_id" ref="planning.planning_view_form"/>
+        <field name="model">planning.slot</field>
+        <field name="arch" type="xml">
+            <field name="role_id" position="after">
+                <field name="customer_id"/>
+                <field name="is_visible_portal" widget="boolean_toggle"/>
+            </field>
+        </field>
+    </record>
+    <record id="planning_slot_view_tree_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.tree.inherit</field>
+        <field name="inherit_id" ref="planning.planning_view_tree"/>
+        <field name="model">planning.slot</field>
+        <field name="arch" type="xml">
+            <field name="role_id" position="after">
+                <field name="customer_id"/>
+                <field name="is_visible_portal" widget="boolean_toggle"/>
+            </field>
+            <field name="company_id" position="after">
+                <button name="open_form" type="object" icon="fa-pencil-square-o"/>
+            </field>
+        </field>
+    </record>
+</odoo>

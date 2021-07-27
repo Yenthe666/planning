@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_planning_slot_portal,planning_slot,planning.model_planning_slot,base.group_portal,1,0,0,0

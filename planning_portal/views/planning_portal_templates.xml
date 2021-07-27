@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_layout" name="Portal layout: planning menu entry" inherit_id="portal.portal_breadcrumbs" priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'planning' or p" class="col-lg-2" t-attf-class="breadcrumb-item #{'active ' if not p else ''}">
+                <a t-if="p" t-attf-href="/my/planning?{{ keep_query() }}">Planning</a>
+                <t t-else="">Planning</t>
+            </li>
+            <li t-if="p" class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                <t t-esc="p.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home" name="Show Planning" customize_show="True" inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Planning</t>
+                <t t-set="url" t-value="'/my/planning'"/>
+                <t t-set="placeholder_count" t-value="'planning_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_planning" name="My planning">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Planning</t>
+            </t>
+            <t t-if="not planning">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no planning slots linked to your account.
+                </div>
+            </t>
+            <t t-if="planning" t-call="portal.portal_table">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Employee</td>
+                        <td>Role</td>
+                        <td>Start date</td>
+                        <td>End date</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr t-foreach="planning" t-as="p">
+                        <td>
+                            <span t-field="p.name"/>
+                        </td>
+                        <td>
+                            <span t-field="p.employee_id.name"/>
+                        </td>
+                        <td>
+                            <span t-field="p.role_id.name"/>
+                        </td>
+                        <td>
+                            <span t-field="p.start_datetime"/>
+                        </td>
+                        <td>
+                            <span t-field="p.end_datetime"/>
+                        </td>
+                        <td>
+                            <a t-attf-href="/my/planning/#{p.id}?{{ keep_query() }}">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </t>
+        </t>
+    </template>
+    <template id="portal_my_planning_item" name="My planning item">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url" t-value="'/web#model=planning.slot&amp;id=%s&amp;view_type=form' % (p.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <h5 class="mb-0">
+                        <span t-field="p.name" class="text-truncate"/>
+                    </h5>
+                </t>
+                <t t-set="card_body">
+                    <div class="row mb-4">
+                        <strong class="col-lg-2">Start</strong>
+                        <span class="col-lg-10" t-field="p.start_datetime" t-options-format="&quot;dd-MM-yyyy hh:mm&quot;"/>
+                    </div>
+                    <div class="row mb-4">
+                        <strong class="col-lg-2">End</strong>
+                        <span class="col-lg-10" t-field="p.end_datetime" t-options-format="&quot;dd-MM-yyyy HH:mm&quot;"/>
+                    </div>
+                    <div class="row mb-4" t-if="p.employee_id">
+                        <strong class="col-lg-2">Employee</strong>
+                        <span class="col-lg-10" t-field="p.employee_id.name"/>
+                    </div>
+                    <div class="row mb-4" t-if="p.role_id">
+                        <strong class="col-lg-2">Role</strong>
+                        <span class="col-lg-10" t-field="p.role_id.name"/>
+                    </div>
+                    <div class="row mb-4" t-if="p.name">
+                        <strong class="col-lg-2">Note</strong>
+                        <span class="col-lg-10" t-field="p.name"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
