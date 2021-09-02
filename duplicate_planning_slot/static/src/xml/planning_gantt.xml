@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="DuplicateButton">
+        <i
+            t-if="widget.options.canCreate and widget.options.canCellCreate"
+            title="Duplicate"
+            class="o_gantt_cell_duplicate fa fa-clone d-flex flex-grow-0 flex-shrink-1 justify-content-center"
+        />
+    </t>
+
+    <t t-name="SlotButtons">
+        <div t-if="slot.hasButtons" class="o_gantt_slot_buttons justify-content-center">
+            <div class="position-absolute d-flex">
+                <t t-call="DuplicateButton"/>
+            </div>
+        </div>
+    </t>
+
+    <t t-inherit="web_gantt.GanttView.Row" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_gantt_cell_buttons')]/div" position="inside">
+            <t>
+                <t t-call="DuplicateButton"/>
+            </t>
+        </xpath>
+        <xpath expr="//div[hasclass('o_gantt_slots_container')]/div/div/t/div[1]/div" position="inside">
+            <t t-call="SlotButtons"/>
+        </xpath>
+        <xpath expr="//div[hasclass('o_gantt_slots_container')]/div/div/t/div[2]/div" position="inside">
+            <t t-call="SlotButtons"/>
+        </xpath>
+        <xpath expr="//div[hasclass('o_gantt_slots_container')]/div/div/t/div[3]/div" position="inside">
+            <t t-call="SlotButtons"/>
+        </xpath>
+    </t>
+</templates>

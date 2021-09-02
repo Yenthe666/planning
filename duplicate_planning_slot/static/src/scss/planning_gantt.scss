@@ -1,0 +1,28 @@
+.o_gantt_cell_duplicate {
+    @extend .o_gantt_cell_add;
+}
+
+// the first pill in a slot is handled by the gant cell buttons, so can just hide it
+.o_gantt_cell > .o_gantt_pill_wrapper:nth-child(2) {
+    .o_gantt_pill {
+        .o_gantt_slot_buttons {
+            display: none;
+        }
+    }
+}
+// but the 2nd and greater pills act normal
+.o_gantt_cell > .o_gantt_pill_wrapper:not(:nth-child(2)) {
+    .o_gantt_pill {
+        .o_gantt_slot_buttons {
+            @extend .o_gantt_cell_buttons;
+            // overrides for .o_gantt_cell_buttons
+            display: none !important;
+        }
+
+        &:hover {
+            .o_gantt_slot_buttons {
+                display: flex !important;
+            }
+        }
+    }
+}
