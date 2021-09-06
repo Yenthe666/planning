@@ -1,5 +1,7 @@
 # planning
 Apps related to Odoo it's planning features
+- [planning_portal](#planning_portal): show the planning in the portal for subcontractors/customers
+- [duplicate_planning_slots](#duplicate_planning_slots): add quick duplicate support to planning slots from the Gantt view
 
 
 ## planning_portal
@@ -12,3 +14,10 @@ The customer can then in the portal see the planning slots:
 
 Every planning slot it's detail can be viewed in a separate page:
 ![image](https://user-images.githubusercontent.com/6352350/127108276-f1a64311-eeda-4f4f-86dd-3ce6239c4eb5.png)
+
+
+## duplicate_planning_slots
+Adds support for a duplicate icon in the Gantt view.
+This module allows you to quick duplicate (copy) planning slots from the Gantt.
+![image](https://user-images.githubusercontent.com/6352350/132170667-c944c45b-866c-413c-a0f6-c243bacea2a1.png)
+
