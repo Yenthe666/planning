@@ -20,17 +20,17 @@ msgstr ""
 #: code:addons/dynamic_gantt_planning/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "Days -"
-msgstr ""
+msgstr "Dagen -"
 
 #. module: dynamic_gantt_planning
 #: model:ir.model.fields,field_description:dynamic_gantt_planning.field_res_users__context_days_future
 msgid "Days future"
-msgstr ""
+msgstr "Dagen toekomst"
 
 #. module: dynamic_gantt_planning
 #: model:ir.model.fields,field_description:dynamic_gantt_planning.field_res_users__context_days_past
 msgid "Days past"
-msgstr ""
+msgstr "Dagen verleden"
 
 #. module: dynamic_gantt_planning
 #: model:ir.model.fields,field_description:dynamic_gantt_planning.field_res_users__display_name
@@ -42,13 +42,13 @@ msgstr "Schermnaam"
 #: code:addons/dynamic_gantt_planning/static/src/js/gantt_view.js:0
 #, python-format
 msgid "Dynamic"
-msgstr ""
+msgstr "Dynamisch"
 
 #. module: dynamic_gantt_planning
 #: model_terms:ir.ui.view,arch_db:dynamic_gantt_planning.view_users_form_inherit
 #: model_terms:ir.ui.view,arch_db:dynamic_gantt_planning.view_users_preference_form_inherit
 msgid "Gantt View Customization"
-msgstr ""
+msgstr "Gantt weergave aanpassingen"
 
 #. module: dynamic_gantt_planning
 #: model:ir.model.fields,field_description:dynamic_gantt_planning.field_res_users__id
@@ -64,21 +64,21 @@ msgstr "Laatst gewijzigd op"
 #: code:addons/dynamic_gantt_planning/models/res_users.py:0
 #, python-format
 msgid "Please configure proper value for Days Past & Days Future"
-msgstr ""
+msgstr "Gelieve de dagen verleden en dagen toekomst te configureren onder de gebruikersinstellingen"
 
 #. module: dynamic_gantt_planning
 #. openerp-web
 #: code:addons/dynamic_gantt_planning/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "Reload"
-msgstr ""
+msgstr "Refresh"
 
 #. module: dynamic_gantt_planning
 #. openerp-web
 #: code:addons/dynamic_gantt_planning/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "To"
-msgstr ""
+msgstr "Tot +"
 
 #. module: dynamic_gantt_planning
 #: model:ir.model,name:dynamic_gantt_planning.model_res_users
