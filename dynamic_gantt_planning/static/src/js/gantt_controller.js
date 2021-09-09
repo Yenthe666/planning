@@ -7,11 +7,11 @@ odoo.define("dynamic_gantt_planning.DynamicGanttController", function (require) 
     var session = require("web.session");
 
     GanttController.include({
-        // Inherit the events and add new button click event #371
+        // Inherit the events and add new button click event
         events: _.extend({}, GanttController.prototype.events, {
             "click .o_gantt_button_reload": "_onEnteredDays",
         }),
-        // Inherit and add days_past, days_future #371
+        // Inherit and add days_past, days_future
         init: function (parent, model, renderer, params) {
             this.days_past = session.user_context.days_past;
             this.days_future = session.user_context.days_future;
@@ -20,7 +20,7 @@ odoo.define("dynamic_gantt_planning.DynamicGanttController", function (require) 
 
         _onScaleClicked: function (ev) {
             /* On click of button made the Days past or future input field visible also
-             also made visible for reload button based on condition #371*/
+             also made visible for reload button based on condition*/
             this._super.apply(this, arguments);
             var $button = $(ev.currentTarget);
             var scale = $button.data("value");
@@ -37,7 +37,7 @@ odoo.define("dynamic_gantt_planning.DynamicGanttController", function (require) 
 
         _onEnteredDays: function () {
             /* Add new method on days entered and click on reload button to write the
-            input fields value in the user level and render according to buttons #371
+            input fields value in the user level and render according to buttons
             */
             var self = this;
             var state = this.model.get();

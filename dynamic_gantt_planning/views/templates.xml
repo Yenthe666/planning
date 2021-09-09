@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!-- Inherit template and load js and scss #371 -->
+    <!-- Inherit template and load js and scss -->
     <template
         id="assets_backend"
         name="web gantt assets"

@@ -2,11 +2,11 @@
 <templates xml:space="preserve">
 
     <!-- extend GanttView template for adding 'days_future' and 'days_past' date
-    format #371 -->
+    format -->
     <div t-extend="GanttView">
         <div t-jquery="div.o_gantt_header_scale" t-operation="replace">
             <div class="row no-gutters o_gantt_header_scale">
-            <!-- Add format for days_past and days_future #371 -->
+            <!-- Add format for days_past and days_future -->
             <t
                     t-set="formats"
                     t-value="{'week': 'dddd, Do', 'month': 'DD', 'year': 'MMMM', 'dynamic': 'DD'}"
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div t-extend="GanttView.buttons">
-        <!-- Add buttons Days Past and Days Future Input field on Gantt view #371 -->
+        <!-- Add buttons Days Past and Days Future Input field on Gantt view -->
         <t t-jquery="div.btn-group" t-operation="after">
             <div
                 class="btn-group mt-3 col-md-12 justify-content-center font-weight-bold"
@@ -70,7 +70,7 @@
                         t-att-value="widget.days_future"
                     />
                 </div>
-                <!-- Add reload button on Gantt view #371 -->
+                <!-- Add reload button on Gantt view -->
                 <div>
                     <button
                         class="o_gantt_button_reload fa fa-refresh btn d-none"

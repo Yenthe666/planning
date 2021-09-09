@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
 
     <div t-extend="PlanningGanttView.buttons">
-        <!-- Add buttons Days Past and Days Future Input field on Planning Gantt view #371 -->
+        <!-- Add buttons Days Past and Days Future Input field on Planning Gantt view-->
         <t t-jquery="div.btn-group" t-operation="after">
             <div
                 class="btn-group mt-3 col-md-12 justify-content-center font-weight-bold"
@@ -35,7 +35,7 @@
                         t-att-value="widget.days_future"
                     />
                 </div>
-                <!-- Add reload button on Gantt view #371 -->
+                <!-- Add reload button on Gantt view -->
                 <div>
                     <button
                         class="o_gantt_button_reload fa fa-refresh btn d-none"

@@ -11,7 +11,7 @@ odoo.define("dynamic_gantt_planning.GanttView", function (require) {
     var _t = core._t;
 
     var DynamicPlanningGanttView = GanttView.include({
-        // Extend the config of the GanttView #371
+        // Extend the config of the GanttView
         config: _.extend({}, GanttView.prototype.config, {
             Model: GanttModel,
             Controller: GanttController,
@@ -22,8 +22,8 @@ odoo.define("dynamic_gantt_planning.GanttView", function (require) {
             var self = this;
             this._super.apply(this, arguments);
 
-            // Bizz Customizations starts #371
-            // Add new scales for the dynamic #371
+            // Bizz Customizations starts
+            // Add new scales for the dynamic
             this.SCALES = _.extend(self.SCALES, {
                 dynamic: {
                     string: _t("Dynamic"),
@@ -33,7 +33,7 @@ odoo.define("dynamic_gantt_planning.GanttView", function (require) {
                     interval: "day",
                 },
             });
-            // Bizz Customizations ends #371
+            // Bizz Customizations ends
 
             var arch = this.arch;
             // Decoration fields
@@ -44,7 +44,7 @@ odoo.define("dynamic_gantt_planning.GanttView", function (require) {
                 }
             });
 
-            // Redefine for the precision and arch for dynamic range #371
+            // Redefine for the precision and arch for dynamic range
             var precisionAttrs = arch.attrs.precision
                 ? pyUtils.py_eval(arch.attrs.precision)
                 : {};

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <!-- Inherit the res user profile form #371 -->
+        <!-- Inherit the res user profile form -->
         <record id="view_users_form_inherit" model="ir.ui.view">
             <field name="name">res.users.form</field>
             <field name="model">res.users</field>
             <field name="inherit_id" ref="hr.res_users_view_form_simple_modif" />
             <field name="arch" type="xml">
-                <!-- Add fields in the view #371 -->
+                <!-- Add fields in the view -->
                 <xpath expr="//notebook//page" position="inside">
                     <group string="Gantt View Customization">
                         <field name="context_days_past" />
@@ -17,13 +17,13 @@
             </field>
         </record>
 
-        <!-- Inherit the res user form and add in prefrence #371 -->
+        <!-- Inherit the res user form and add in prefrence -->
         <record id="view_users_preference_form_inherit" model="ir.ui.view">
             <field name="name">res.users.form</field>
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.view_users_form" />
             <field name="arch" type="xml">
-                <!-- Add fields in the view #371 -->
+                <!-- Add fields in the view -->
                 <xpath expr="//notebook//page[@name='references']" position="inside">
                     <group string="Gantt View Customization">
                         <field name="context_days_past" />

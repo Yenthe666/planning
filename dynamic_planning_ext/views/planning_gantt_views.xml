@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <!-- Inherit planning gantt view #371 -->
+        <!-- Inherit planning gantt view -->
         <record id="view_planning_slot_gantt_inherit" model="ir.ui.view">
             <field name="name">planning.slot.inherit.view.gantt</field>
             <field name="model">planning.slot</field>
             <field name="inherit_id" ref="planning.planning_view_gantt" />
             <field name="arch" type="xml">
-                <!-- Add additional scales and precision value for gantt view #371 -->
+                <!-- Add additional scales and precision value for gantt view -->
                 <xpath expr="//gantt" position="attributes">
                     <attribute name="scales">day,week,month,year,dynamic</attribute>
                     <attribute

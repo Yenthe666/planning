@@ -7,7 +7,7 @@ odoo.define("dynamic_gantt_planning.GanttModel", function (require) {
     var PlanningGanttModel = GanttModel.include({
         _setRange: function (focusDate, scale) {
             /* Override _setRange method to set the range for when user selects Days Past or
-        Days Future in gantt view #371 */
+        Days Future in gantt view */
             var self = this;
             this.ganttData.scale = scale;
             this.ganttData.focusDate = focusDate;
@@ -21,9 +21,9 @@ odoo.define("dynamic_gantt_planning.GanttModel", function (require) {
                     .clone()
                     .add(1, scale);
             }
-            // Bizz Customizations starts #371
+            // Bizz Customizations starts
             else if (this.ganttData.scale === "dynamic") {
-                // Adjust startDate of ganttData according to user configuration #371
+                // Adjust startDate of ganttData according to user configuration
                 var past_days = session.user_context.days_past;
                 var future_days = session.user_context.days_future;
 
@@ -48,7 +48,7 @@ odoo.define("dynamic_gantt_planning.GanttModel", function (require) {
                 this.ganttData.startDate = startDate.startOf('day');
                 this.ganttData.stopDate = stopDate.endOf('day');
             }
-            // Bizz Customizations ends #371
+            // Bizz Customizations ends
             else {
                 this.ganttData.startDate = focusDate.clone().startOf(scale);
                 this.ganttData.stopDate = focusDate.clone().endOf(scale);

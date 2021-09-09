@@ -8,14 +8,14 @@ odoo.define("dynamic_gantt_planning.GanttRow", function (require) {
     var PlanningGanttRow = GanttRow.include({
         _calculateMarginAndWidth: function () {
             /* Inherit the _calculateMarginAndWidth method to calculate the margin and
-            width for the pill #371 */
+            width for the pill*/
             var self = this;
             var left = false;
             var diff = false;
             var gapSize = 0;
             this.pills.forEach(function (pill) {
                 switch (self.state.scale) {
-                    // Calculate the margin and width for the pill for dynamic #371
+                    // Calculate the margin and width for the pill for dynamic
                     case "dynamic":
                         left = pill.startDate.diff(
                             pill.startDate.clone().startOf("day"),

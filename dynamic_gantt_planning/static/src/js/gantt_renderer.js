@@ -11,7 +11,7 @@ odoo.define("dynamic_gantt_planning.GanttRenderer", function (require) {
         },
         _getFocusDateFormat: function () {
             /* Override the method to add case for days_past and days_future to display the
-        date based on the user's configuration #371 */
+        date based on the user's configuration*/
             var focusDate = this.state.focusDate;
             var self = this;
             var dateStart = false;
@@ -30,9 +30,9 @@ odoo.define("dynamic_gantt_planning.GanttRenderer", function (require) {
                     return focusDate.format("MMMM YYYY");
                 case "year":
                     return focusDate.format("YYYY");
-                // Bizz Customization starts #371
+                // Bizz Customization starts
                 case "dynamic":
-                    // Adjust dateStart and dateStop for the days_past and days_future #371
+                    // Adjust dateStart and dateStop for the days_past and days_future
                     var past_days = session.user_context.days_past;
                     var future_days = session.user_context.days_future;
 
@@ -55,7 +55,7 @@ odoo.define("dynamic_gantt_planning.GanttRenderer", function (require) {
                         return _.str.sprintf("%s", dateStart);
                     }
                     return _.str.sprintf("%s - %s", dateStart, dateEnd);
-                // Bizz Customization ends #371
+                // Bizz Customization ends
                 default:
                     break;
             }
