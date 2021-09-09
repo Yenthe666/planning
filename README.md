@@ -3,6 +3,7 @@ Apps related to Odoo it's planning features
 - [planning_portal](#planning_portal): show the planning in the portal for subcontractors/customers
 - [duplicate_planning_slots](#duplicate_planning_slots): add quick duplicate support to planning slots from the Gantt view
 - [dynamic_gantt](#dynamic_gantt): add a dynamic view mode to Gantt views. This allows you to configure the days in the past/future for the Gantt view per user
+- [dynamic_gantt_planning](#dynamic_gantt_planning): dynamic view mode for the planning app in Odoo. This view was heavily customized by Odoo SA for planning & we extended it.
 
 
 ## planning_portal
@@ -53,3 +54,8 @@ In this case you will need to add `dynamic` to the `scales` and add the `precisi
     </data>
 </odoo>
 ```
+
+# dynamic_gantt_planning
+Adds support for the dynamic view mode on the planning app.<br/>
+Since this view was heavily customized in the planning app we had to write a custom extension to allow this:<br/>
+![image](https://user-images.githubusercontent.com/6352350/132718002-d0dd353c-99dc-4e88-a4a8-aae93f49f676.png)
