@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Inherit template and load js and scss -->
+    <template
+        id="assets_backend"
+        name="web gantt assets"
+        inherit_id="web.assets_backend"
+    >
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/dynamic_gantt/static/src/js/gantt_view.js"
+            />
+            <script
+                type="text/javascript"
+                src="/dynamic_gantt/static/src/js/gantt_renderer.js"
+            />
+            <script
+                type="text/javascript"
+                src="/dynamic_gantt/static/src/js/gantt_model.js"
+            />
+            <script
+                type="text/javascript"
+                src="/dynamic_gantt/static/src/js/gantt_row.js"
+            />
+            <script
+                type="text/javascript"
+                src="/dynamic_gantt/static/src/js/gantt_controller.js"
+            />
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/dynamic_gantt/static/src/scss/gantt_view.scss"
+            />
+        </xpath>
+    </template>
+
+</odoo>
