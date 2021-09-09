@@ -1,6 +1,7 @@
 {
-    "name": "Dynamic Gantt Planning",
+    "name": "Dynamic Gantt",
     "author": "Mainframe Monkey BV",
+    "description": "Used for making gantt view dynamic.",
     "website": "https://www.mainframemonkey.com",
     "category": "",
     "version": "14.0.0.0.2",

@@ -21,5 +21,5 @@ class ResUsers(models.Model):
         proper value or raise validation"""
         if self.context_days_past < 1 or self.context_days_future < 1:
             raise UserError(
-                _("Please configure proper value for Days Past & Days Future")
+                _("Please configure the days in the past and days in the future under your user preferences.")
             )

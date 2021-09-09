@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <!-- Add fields in the view -->
                 <xpath expr="//notebook//page" position="inside">
-                    <group string="Gantt View Customization">
+                    <group name="gantt_view_preferences" string="Gantt View Customization">
                         <field name="context_days_past" />
                         <field name="context_days_future" />
                     </group>
@@ -25,7 +25,7 @@
             <field name="arch" type="xml">
                 <!-- Add fields in the view -->
                 <xpath expr="//notebook//page[@name='references']" position="inside">
-                    <group string="Gantt View Customization">
+                    <group name="gantt_view_preferences" string="Gantt View Customization">
                         <field name="context_days_past" />
                         <field name="context_days_future" />
                     </group>

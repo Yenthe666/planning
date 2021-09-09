@@ -35,6 +35,25 @@ odoo.define("dynamic_gantt_planning.DynamicGanttController", function (require) 
             }
         },
 
+        _onAddClicked: function (ev) {
+            /* Inherit _onAddClicked to adjust the date when dynamic is set in scale
+            and so the width is properly adjusted */
+            ev.preventDefault();
+            var context = {};
+            var state = this.model.get();
+            if (state.scale === "dynamic"){
+                context[state.dateStartField] = this.model.convertToServerTime(state.focusDate.clone().startOf('day'));
+                context[state.dateStopField] = this.model.convertToServerTime(state.focusDate.clone().endOf('day'));
+                for (var k in context) {
+                    context[_.str.sprintf('default_%s', k)] = context[k];
+                }
+                this._onCreate(context);
+            }
+            else {
+                this._super(ev);
+            }
+        },
+
         _onEnteredDays: function () {
             /* Add new method on days entered and click on reload button to write the
             input fields value in the user level and render according to buttons

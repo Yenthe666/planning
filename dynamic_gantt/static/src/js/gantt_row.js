@@ -23,6 +23,11 @@ odoo.define("dynamic_gantt_planning.GanttRow", function (require) {
                         );
                         pill.leftMargin = (left / 24) * 100;
                         diff = pill.stopDate.diff(pill.startDate, "hours");
+                        /* If difference is less than 24 hrs set 24 as difference for
+                        width calculation */
+                        if (diff < 24) {
+                            diff = 24;
+                        }
                         // Eventually compensate border(s) width
                         gapSize = pill.stopDate.diff(pill.startDate, "days") - 1;
                         pill.width =
