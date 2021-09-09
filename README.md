@@ -2,6 +2,7 @@
 Apps related to Odoo it's planning features
 - [planning_portal](#planning_portal): show the planning in the portal for subcontractors/customers
 - [duplicate_planning_slots](#duplicate_planning_slots): add quick duplicate support to planning slots from the Gantt view
+- [dynamic_gantt](#dynamic_gantt): add a dynamic view mode to Gantt views. This allows you to configure the days in the past/future for the Gantt view per user
 
 
 ## planning_portal
@@ -21,3 +22,34 @@ Adds support for a duplicate icon in the Gantt view.<br/>
 This module allows you to quick duplicate (copy) planning slots from the Gantt view:
 ![image](https://user-images.githubusercontent.com/6352350/132170667-c944c45b-866c-413c-a0f6-c243bacea2a1.png)
 
+
+## dynamic_gantt
+Adds support for viewing the Gantt view in a "Dynamic" mode.<br/>
+This dynamic mode allows any user to configure how many days in the past and how many days into the future they want to see on the Gantt view.<br/>
+This is configurable per user under the user it's own preferences. A sample of the Dynamic Gantt mode for holidays:
+![image](https://user-images.githubusercontent.com/6352350/132712311-92477dbb-09ff-4c2e-ad2d-135f7dcadf7c.png)
+
+This module works on default Gantt views (such as the one in Time off), however it will not automatically work on all Gantt views (for example under tasks).
+In this case you will need to add `dynamic` to the `scales` and add the `precision` `'dynamic': 'day:full'`. A sample piece of code:
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Inherit planning gantt view -->
+        <record id="view_planning_slot_gantt_inherit" model="ir.ui.view">
+            <field name="name">planning.slot.inherit.view.gantt</field>
+            <field name="model">planning.slot</field>
+            <field name="inherit_id" ref="planning.planning_view_gantt" />
+            <field name="arch" type="xml">
+                <!-- Add additional scales and precision value for gantt view -->
+                <xpath expr="//gantt" position="attributes">
+                    <attribute name="scales">day,week,month,year,dynamic</attribute>
+                    <attribute
+                        name="precision"
+                    >{'day': 'hour:full', 'week': 'day:full', 'month': 'day:full', 'year': 'day:full', 'dynamic': 'day:full'}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+```
