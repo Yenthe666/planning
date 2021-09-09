@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <!-- extend GanttView template for adding 'days_future' and 'days_past' date
+    format #371 -->
+    <div t-extend="GanttView">
+        <div t-jquery="div.o_gantt_header_scale" t-operation="replace">
+            <div class="row no-gutters o_gantt_header_scale">
+            <!-- Add format for days_past and days_future #371 -->
+            <t
+                    t-set="formats"
+                    t-value="{'week': 'dddd, Do', 'month': 'DD', 'year': 'MMMM', 'dynamic': 'DD'}"
+                />
+
+                <t t-foreach="widget.viewInfo.slots" t-as="slot">
+                    <t
+                        t-set="isToday"
+                        t-value="slot.isSame(new Date(), 'day') &amp;&amp; widget.state.scale !== 'day'"
+                    />
+                    <div
+                        t-attf-class="col o_gantt_header_cell text-center p-2 #{isToday? 'o_gantt_today' : ''} "
+                    >
+                        <t
+                            t-if="widget.state.scale in formats"
+                            t-esc="slot.format(formats[widget.state.scale])"
+                        />
+                        <small t-else="">
+                            <b t-esc="slot.format('k')" />
+                            <span
+                                class="d-block d-xl-inline-block"
+                                t-esc="slot.format('a')"
+                            />
+                        </small>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </div>
+    <div t-extend="GanttView.buttons">
+        <!-- Add buttons Days Past and Days Future Input field on Gantt view #371 -->
+        <t t-jquery="div.btn-group" t-operation="after">
+            <div
+                class="btn-group mt-3 col-md-12 justify-content-center font-weight-bold"
+            >
+                <div>
+                    <label
+                        for="days_past"
+                        class="js_days_past d-none"
+                        style="margin-right: 12px; margin-left: 12px;"
+                    > Days - </label>
+                    <input
+                        type="text"
+                        name="days_past"
+                        class="js_days_past d-none"
+                        style="width: 100px; display: inline-flex"
+                        t-att-value="widget.days_past"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="days_future"
+                        class="js_days_future d-none"
+                        style="margin-right: 12px; margin-left: 12px;"
+                    > To </label>
+                    <input
+                        type="text"
+                        name="days_future"
+                        class="js_days_future d-none"
+                        style="width: 100px; display: inline-flex"
+                        t-att-value="widget.days_future"
+                    />
+                </div>
+                <!-- Add reload button on Gantt view #371 -->
+                <div>
+                    <button
+                        class="o_gantt_button_reload fa fa-refresh btn d-none"
+                        title="Reload"
+                    />
+                </div>
+            </div>
+        </t>
+    </div>
+</templates>
