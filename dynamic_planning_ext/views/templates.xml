@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Inherit template and load js and scss #371 -->
+    <template
+        id="assets_backend"
+        name="web gantt assets"
+        inherit_id="web.assets_backend"
+    >
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/dynamic_planning_ext/static/src/js/gantt_controller.js"
+            />
+        </xpath>
+    </template>
+
+</odoo>

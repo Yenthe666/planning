@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <div t-extend="PlanningGanttView.buttons">
+        <!-- Add buttons Days Past and Days Future Input field on Planning Gantt view #371 -->
+        <t t-jquery="div.btn-group" t-operation="after">
+            <div
+                class="btn-group mt-3 col-md-12 justify-content-center font-weight-bold"
+            >
+                <div>
+                    <label
+                        for="days_past"
+                        class="js_days_past d-none"
+                        style="margin-right: 12px; margin-left: 12px;"
+                    > Days - </label>
+                    <input
+                        type="text"
+                        name="days_past"
+                        class="js_days_past d-none"
+                        style="width: 100px; display: inline-flex"
+                        t-att-value="widget.days_past"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="days_future"
+                        class="js_days_future d-none"
+                        style="margin-right: 12px; margin-left: 12px;"
+                    > To </label>
+                    <input
+                        type="text"
+                        name="days_future"
+                        class="js_days_future d-none"
+                        style="width: 100px; display: inline-flex"
+                        t-att-value="widget.days_future"
+                    />
+                </div>
+                <!-- Add reload button on Gantt view #371 -->
+                <div>
+                    <button
+                        class="o_gantt_button_reload fa fa-refresh btn d-none"
+                        title="Reload"
+                    />
+                </div>
+            </div>
+        </t>
+    </div>
+</templates>
