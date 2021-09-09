@@ -1,5 +1,5 @@
 {
-    "name": "Dynamic Planning Extension",
+    "name": "Dynamic Gantt view planning",
     "author": "Mainframe Monkey BV",
     "website": "https://www.mainframemonkey.com",
     "category": "",

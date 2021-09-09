@@ -1,4 +1,4 @@
-odoo.define("dynamic_planning_ext.PlanningGanttController", function (require) {
+odoo.define("dynamic_gantt_planning.PlanningGanttController", function (require) {
     "use strict";
 
     /* eslint no-unused-vars: ["error", { "args": "none" }]*/

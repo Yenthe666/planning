@@ -9,7 +9,7 @@
         <xpath expr="." position="inside">
             <script
                 type="text/javascript"
-                src="/dynamic_planning_ext/static/src/js/gantt_controller.js"
+                src="/dynamic_gantt_planning/static/src/js/gantt_controller.js"
             />
         </xpath>
     </template>

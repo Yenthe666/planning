@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* dynamic_planning_ext
+# 	* dynamic_gantt_planning
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 11:13+0000\n"
-"PO-Revision-Date: 2021-09-09 11:13+0000\n"
+"POT-Creation-Date: 2021-09-09 11:12+0000\n"
+"PO-Revision-Date: 2021-09-09 11:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,23 +15,23 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: dynamic_planning_ext
+#. module: dynamic_gantt_planning
 #. openerp-web
-#: code:addons/dynamic_planning_ext/static/src/xml/web_gantt.xml:0
+#: code:addons/dynamic_gantt_planning/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "Days -"
-msgstr "Dagen -"
+msgstr ""
 
-#. module: dynamic_planning_ext
+#. module: dynamic_gantt_planning
 #. openerp-web
-#: code:addons/dynamic_planning_ext/static/src/xml/web_gantt.xml:0
+#: code:addons/dynamic_gantt_planning/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "Reload"
-msgstr "Refresh"
+msgstr ""
 
-#. module: dynamic_planning_ext
+#. module: dynamic_gantt_planning
 #. openerp-web
-#: code:addons/dynamic_planning_ext/static/src/xml/web_gantt.xml:0
+#: code:addons/dynamic_gantt_planning/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "To"
-msgstr "Tot +"
+msgstr ""
