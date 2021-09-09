@@ -20,18 +20,18 @@ msgstr ""
 #: code:addons/dynamic_planning_ext/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "Days -"
-msgstr ""
+msgstr "Dagen -"
 
 #. module: dynamic_planning_ext
 #. openerp-web
 #: code:addons/dynamic_planning_ext/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "Reload"
-msgstr ""
+msgstr "Refresh"
 
 #. module: dynamic_planning_ext
 #. openerp-web
 #: code:addons/dynamic_planning_ext/static/src/xml/web_gantt.xml:0
 #, python-format
 msgid "To"
-msgstr ""
+msgstr "Tot +"
