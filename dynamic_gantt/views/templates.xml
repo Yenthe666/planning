@@ -9,28 +9,28 @@
         <xpath expr="." position="inside">
             <script
                 type="text/javascript"
-                src="/dynamic_gantt_planning/static/src/js/gantt_view.js"
+                src="/dynamic_gantt/static/src/js/gantt_view.js"
             />
             <script
                 type="text/javascript"
-                src="/dynamic_gantt_planning/static/src/js/gantt_renderer.js"
+                src="/dynamic_gantt/static/src/js/gantt_renderer.js"
             />
             <script
                 type="text/javascript"
-                src="/dynamic_gantt_planning/static/src/js/gantt_model.js"
+                src="/dynamic_gantt/static/src/js/gantt_model.js"
             />
             <script
                 type="text/javascript"
-                src="/dynamic_gantt_planning/static/src/js/gantt_row.js"
+                src="/dynamic_gantt/static/src/js/gantt_row.js"
             />
             <script
                 type="text/javascript"
-                src="/dynamic_gantt_planning/static/src/js/gantt_controller.js"
+                src="/dynamic_gantt/static/src/js/gantt_controller.js"
             />
             <link
                 rel="stylesheet"
                 type="text/scss"
-                href="/dynamic_gantt_planning/static/src/scss/gantt_view.scss"
+                href="/dynamic_gantt/static/src/scss/gantt_view.scss"
             />
         </xpath>
     </template>

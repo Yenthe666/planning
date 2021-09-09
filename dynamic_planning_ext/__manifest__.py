@@ -4,7 +4,7 @@
     "website": "https://www.mainframemonkey.com",
     "category": "",
     "version": "14.0.0.0.2",
-    "depends": ["planning", "dynamic_gantt_planning"],
+    "depends": ["planning", "dynamic_gantt"],
     "data": [
         "views/planning_gantt_views.xml",
         "views/templates.xml",

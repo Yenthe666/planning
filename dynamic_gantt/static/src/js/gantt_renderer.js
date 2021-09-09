@@ -1,4 +1,4 @@
-odoo.define("dynamic_gantt_planning.GanttRenderer", function (require) {
+odoo.define("dynamic_gantt.GanttRenderer", function (require) {
     "use strict";
 
     var GanttRenderer = require("web_gantt.GanttRenderer");
