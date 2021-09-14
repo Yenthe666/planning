@@ -13,7 +13,7 @@ odoo.define("dynamic_gantt.GanttModel", function (require) {
             this.ganttData.focusDate = focusDate;
             var startDate = false;
             var stopDate = false;
-            if (this.ganttData.dynamicRange) {
+            if (this.ganttData.dynamicRange && this.ganttData.scale != "dynamic") {
                 this.ganttData.startDate = focusDate
                     .clone()
                     .startOf(this.SCALES[scale].interval);
