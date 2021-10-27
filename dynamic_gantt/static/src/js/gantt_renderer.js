@@ -17,19 +17,10 @@ odoo.define("dynamic_gantt.GanttRenderer", function (require) {
             var dateStart = false;
             var dateEnd = false;
             switch (self.state.scale) {
-                case "day":
-                    return focusDate.format("dddd, MMMM DD, YYYY");
-                case "week":
-                    dateStart = focusDate
-                        .clone()
-                        .startOf("week")
-                        .format("DD MMMM YYYY");
-                    dateEnd = focusDate.clone().endOf("week").format("DD MMMM YYYY");
-                    return _.str.sprintf("%s - %s", dateStart, dateEnd);
-                case "month":
-                    return focusDate.format("MMMM YYYY");
-                case "year":
-                    return focusDate.format("YYYY");
+                // # 443 Start
+                /* Remove the day, week, month, year code for compatibility issue
+                   with module planning_week_number */
+                // # 443 End
                 // Bizz Customization starts
                 case "dynamic":
                     // Adjust dateStart and dateStop for the days_past and days_future
@@ -57,7 +48,8 @@ odoo.define("dynamic_gantt.GanttRenderer", function (require) {
                     return _.str.sprintf("%s - %s", dateStart, dateEnd);
                 // Bizz Customization ends
                 default:
-                    break;
+                    // call super for the cases of day, week, month, year # 443
+                    return self._super();
             }
         },
     });
