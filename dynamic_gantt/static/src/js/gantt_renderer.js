@@ -17,10 +17,8 @@ odoo.define("dynamic_gantt.GanttRenderer", function (require) {
             var dateStart = false;
             var dateEnd = false;
             switch (self.state.scale) {
-                // # 443 Start
                 /* Remove the day, week, month, year code for compatibility issue
                    with module planning_week_number */
-                // # 443 End
                 // Bizz Customization starts
                 case "dynamic":
                     // Adjust dateStart and dateStop for the days_past and days_future
@@ -48,7 +46,7 @@ odoo.define("dynamic_gantt.GanttRenderer", function (require) {
                     return _.str.sprintf("%s - %s", dateStart, dateEnd);
                 // Bizz Customization ends
                 default:
-                    // call super for the cases of day, week, month, year # 443
+                    // call super for the cases of day, week, month, year.
                     return self._super();
             }
         },
