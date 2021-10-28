@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="assets_backend"
+        name="planning_week_number_backend_assets"
+        inherit_id="web.assets_backend"
+    >
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/planning_week_number/static/src/js/planning_week_number_gantt_renderer.js"
+            />
+        </xpath>
+    </template>
+</odoo>
