@@ -17,23 +17,15 @@ odoo.define("dynamic_gantt.GanttRow", function (require) {
                 switch (self.state.scale) {
                     // Calculate the margin and width for the pill for dynamic
                     case "dynamic":
-                        left = pill.startDate.diff(
-                            pill.startDate.clone().startOf("day"),
-                            "hours"
-                        );
-                        pill.leftMargin = (left / 24) * 100;
-                        diff = pill.stopDate.diff(pill.startDate, "hours");
-                        /* If difference is less than 24 hrs set 24 as difference for
-                        width calculation */
-                        if (diff < 24) {
+                        left = pill.startDate.diff(pill.startDate.clone().startOf('day'), 'hours');
+                        diff = pill.stopDate.diff(pill.startDate, 'hours');
+                        if (diff < 24){
                             diff = 24;
+                            left=0;
                         }
-                        // Eventually compensate border(s) width
-                        gapSize = pill.stopDate.diff(pill.startDate, "days") - 1;
-                        pill.width =
-                            gapSize > 0
-                                ? "calc(" + (diff / 24) * 100 + "% + " + gapSize + "px)"
-                                : (diff / 24) * 100 + "%";
+                        pill.leftMargin = (left / 24) * 100;
+                        var gapSize = pill.stopDate.diff(pill.startDate, 'days') - 1; // Eventually compensate border(s) width
+                        pill.width = gapSize > 0 ? 'calc(' + (diff / 24) * 100 + '% + ' + gapSize + 'px)' : (diff / 24) * 100 + '%';
                         break;
                     default:
                         break;
