@@ -3,39 +3,53 @@
 
     <!-- extend GanttView template for adding 'days_future' and 'days_past' date
     format -->
-    <div t-extend="GanttView">
-        <div t-jquery="div.o_gantt_header_scale" t-operation="replace">
-            <div class="row no-gutters o_gantt_header_scale">
-            <!-- Add format for days_past and days_future -->
-            <t
-                    t-set="formats"
-                    t-value="{'week': 'dddd, Do', 'month': 'DD', 'year': 'MMMM', 'dynamic': 'DD'}"
-                />
+<div t-extend="GanttView">
+    <div t-jquery="div.o_gantt_header_scale" t-operation="replace">
+        <t t-set="formats" t-value="{'week': 'dddd, Do', 'month': 'DD', 'year': 'MMMM', 'dynamic': 'DD'}" />
+        <div class="row no-gutters o_gantt_header_scale" style="border-left 1px black" t-if="widget.state.scale == 'dynamic'">
+            <!-- Add Week headers  -->
+            <t t-set="weekColWidth" t-value="150" />
+            <t t-foreach="widget.viewInfo.slots" t-as="slot">
+                <t t-if="slot_index != 0" t-set="lastWeek" t-value="thisWeek" />
+                <t t-if="slot_index == 0" t-set="lastWeek" t-value="slot.format('ww')" />
+                <t t-set="thisWeek" t-value="slot.format('ww')" />
+                <t t-if="thisWeek == lastWeek">
 
-                <t t-foreach="widget.viewInfo.slots" t-as="slot">
-                    <t
-                        t-set="isToday"
-                        t-value="slot.isSame(new Date(), 'day') &amp;&amp; widget.state.scale !== 'day'"
-                    />
-                    <div
-                        t-attf-class="col o_gantt_header_cell text-center p-2 #{isToday? 'o_gantt_today' : ''} "
-                    >
-                        <t
-                            t-if="widget.state.scale in formats"
-                            t-esc="slot.format(formats[widget.state.scale])"
-                        />
-                        <small t-else="">
-                            <b t-esc="slot.format('k')" />
-                            <span
-                                class="d-block d-xl-inline-block"
-                                t-esc="slot.format('a')"
-                            />
-                        </small>
-                    </div>
+                    <t t-set="weekColWidth" t-value="weekColWidth + 150" />
+
                 </t>
-            </div>
+
+                <t t-if="thisWeek != lastWeek">
+                    <!-- Gantt header conatainer is fixed at min.width 150px , does not use bootstrap  -->
+                    <div t-attf-class="o_gantt_header_cell text-center p-2 #{isToday? 'o_gantt_today' : ''} " 
+                        t-attf-style="width:#{weekColWidth}px ; border-left: 1px solid black; background-color: LightGray ">
+                        <t t-if="widget.state.scale in formats" t-esc=" 'Week ' + lastWeek" />
+                    </div>
+                    <t t-set="weekColWidth" t-value="150" />
+                </t>
+
+
+            </t>
+
+        </div>
+        <div class="row no-gutters o_gantt_header_scale">
+            <!-- Add format for days_past and days_future -->
+
+            <t t-foreach="widget.viewInfo.slots" t-as="slot">
+                <t t-set="isToday" t-value="slot.isSame(new Date(), 'day') &amp;&amp; widget.state.scale !== 'day'" />
+
+                <t t-set="isToday" t-value="slot.isSame(new Date(), 'day') &amp;&amp; widget.state.scale !== 'day'" />
+                <div t-attf-class="col o_gantt_header_cell text-center p-2 #{isToday? 'o_gantt_today' : ''} ">
+                    <t t-if="widget.state.scale in formats" t-esc=" slot.format(formats[widget.state.scale])" />
+                    <small t-else="">
+                        <b t-esc="slot.format('k')" />
+                        <span class="d-block d-xl-inline-block" t-esc="slot.format('a')" />
+                    </small>
+                </div>
+            </t>
         </div>
     </div>
+</div>
     <div t-extend="GanttView.buttons">
         <!-- Add buttons Days Past and Days Future Input field on Gantt view -->
         <t t-jquery="div.btn-group" t-operation="after">

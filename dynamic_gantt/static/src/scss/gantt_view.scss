@@ -10,11 +10,11 @@
 }
 
 .o_gantt_cell {
-    min-width: 100px;
+    width: 150px;
 }
 
 .o_gantt_view .o_gantt_header_container .o_gantt_header_cell {
-    min-width: 100px;
+    width: 150px;
 }
 .col.o_gantt_header_slots, .col.o_gantt_cell, .col.o_gantt_slots_container, .col.o_gantt_total_row_container, .col.o_gantt_row_container, .col.o_gantt_header_cell, .col.text-center{
     width: unset!important;
