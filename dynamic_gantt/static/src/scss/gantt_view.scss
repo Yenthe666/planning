@@ -10,17 +10,38 @@
 }
 
 .o_gantt_cell {
-    width: 150px;
+    min-width: 100px;
 }
 
 .o_gantt_view .o_gantt_header_container .o_gantt_header_cell {
-    width: 150px;
+    min-width: 100px;
+    border-left:1px solid lightgrey;
 }
+
 .col.o_gantt_header_slots, .col.o_gantt_cell, .col.o_gantt_slots_container, .col.o_gantt_total_row_container, .col.o_gantt_row_container, .col.o_gantt_header_cell, .col.text-center{
     width: unset!important;
     max-width: unset!important;
 }
 
+col.o_gantt_header_cell_dynamic {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
 .col.text-center, .col.o_gantt_header_scale {
     background-color: #FFFFFF !important;
+    display: grid;
+    grid-auto-rows: 1fr
+}
+
+
+.weekInsert {
+    background-color: LightGrey !important;
+    width: 100%;
+    height:100%;
+    padding-left:10px;
+}
+
+.firstDayOfWeek {
+    border-left:1px solid black;
 }
