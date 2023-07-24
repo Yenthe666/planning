@@ -66,10 +66,10 @@ odoo.define("dynamic_gantt.DynamicGanttController", function (require) {
             var state = this.model.get();
             if (state.scale === "dynamic") {
                 var [future, past] = this._get_future_and_past()
-                past = past + 1
-                if (future !== 1) {
-                    future = future - 1
-                }
+                past = past + 7
+                if (future <  8) {
+                    future = 1
+                } else { future = future - 7 } 
                 this.$(".js_days_future").val(future.toString());
                 this.$(".js_days_past").val(past.toString());
                 this._onEnteredDays()
@@ -83,10 +83,10 @@ odoo.define("dynamic_gantt.DynamicGanttController", function (require) {
             var state = this.model.get();
             if (state.scale === "dynamic") {
                 var [future, past] = this._get_future_and_past()
-                future = future + 1
-                if (past !== 1) {
-                    past = past - 1
-                }
+                future = future + 7
+                if (past < 8 ) {
+                    past = 1
+                } else { past = past - 7 } 
                 this.$(".js_days_future").val(future.toString());
                 this.$(".js_days_past").val(past.toString());
                 this._onEnteredDays()
