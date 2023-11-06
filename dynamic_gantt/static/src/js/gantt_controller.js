@@ -53,7 +53,47 @@ odoo.define("dynamic_gantt.DynamicGanttController", function (require) {
                 this._super(ev);
             }
         },
-
+        _get_future_and_past: function () {
+            var future = parseInt(this.$(".js_days_future").val());
+            var past = parseInt(this.$(".js_days_past").val());
+            if (isNaN(future)) { future = 1}
+            if (isNaN(past)) { past = 1}
+            return [future, past]
+        }, 
+        _onPrevPeriodClicked: function (ev) {
+            /* Give Prev button a meaning in dynamic mode */
+            ev.preventDefault();
+            var state = this.model.get();
+            if (state.scale === "dynamic") {
+                var [future, past] = this._get_future_and_past()
+                past = past + 7
+                if (future <  8) {
+                    future = 1
+                } else { future = future - 7 } 
+                this.$(".js_days_future").val(future.toString());
+                this.$(".js_days_past").val(past.toString());
+                this._onEnteredDays()
+            } else {
+                this._super.apply(this, arguments);
+            }
+        },
+        _onNextPeriodClicked: function (ev) {
+            /* Give Next button a meaning in dynamic mode */
+            ev.preventDefault();
+            var state = this.model.get();
+            if (state.scale === "dynamic") {
+                var [future, past] = this._get_future_and_past()
+                future = future + 7
+                if (past < 8 ) {
+                    past = 1
+                } else { past = past - 7 } 
+                this.$(".js_days_future").val(future.toString());
+                this.$(".js_days_past").val(past.toString());
+                this._onEnteredDays()
+            } else {
+                this._super.apply(this, arguments);
+            }
+        },
         _onEnteredDays: function () {
             /* Add new method on days entered and click on reload button to write the
             input fields value in the user level and render according to buttons
